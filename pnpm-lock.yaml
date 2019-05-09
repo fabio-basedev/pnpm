@@ -804,6 +804,44 @@ importers:
       write-file-atomic: 2.4.2
       write-yaml-file: 2.0.0
       yaml-tag: 1.1.0
+  packages/lockfile-to-pnp:
+    dependencies:
+      '@berry/pnp': 0.0.1
+      '@pnpm/lockfile-file': 'link:../lockfile-file'
+      '@pnpm/lockfile-utils': 'link:../lockfile-utils'
+      '@pnpm/pkgid-to-filename': 2.0.0
+      dependency-path: 'link:../dependency-path'
+      ramda: 0.26.1
+    devDependencies:
+      '@pnpm/lockfile-to-pnp': 'link:'
+      '@pnpm/tslint-config': 'link:../../utils/tslint-config'
+      '@pnpm/types': 'link:../types'
+      '@types/node': 12.0.0
+      '@types/ramda': 0.25.39
+      '@types/tape': 4.2.33
+      rimraf: 2.6.3
+      tape: 4.10.1
+      ts-node: 8.1.0_typescript@3.4.5
+      tslint: 5.16.0_typescript@3.4.5
+      typescript: 3.4.5
+    specifiers:
+      '@berry/pnp': 0.0.1
+      '@pnpm/lockfile-file': 1.0.5
+      '@pnpm/lockfile-to-pnp': 'link:'
+      '@pnpm/lockfile-utils': 1.0.6
+      '@pnpm/pkgid-to-filename': 2.0.0
+      '@pnpm/tslint-config': 0.0.0
+      '@pnpm/types': 3.2.0
+      '@types/node': '*'
+      '@types/ramda': 0.25.39
+      '@types/tape': 4.2.33
+      dependency-path: 3.0.5
+      ramda: 0.26.1
+      rimraf: 2.6.3
+      tape: 4.10.1
+      ts-node: 8.1.0
+      tslint: 5.16.0
+      typescript: 3.4.5
   packages/lockfile-types:
     devDependencies:
       '@pnpm/tslint-config': 'link:../../utils/tslint-config'
@@ -1847,6 +1885,7 @@ importers:
       typescript: 3.4.5
   packages/supi:
     dependencies:
+      '@berry/pnp': 0.0.1
       '@pnpm/build-modules': 'link:../build-modules'
       '@pnpm/check-package': 3.0.1
       '@pnpm/constants': 'link:../constants'
@@ -1948,6 +1987,7 @@ importers:
       write-json-file: 3.2.0
       write-yaml-file: 2.0.0
     specifiers:
+      '@berry/pnp': 0.0.1
       '@pnpm/assert-project': 'link:../../privatePackages/assert-project'
       '@pnpm/assert-store': 'link:../../privatePackages/assert-store'
       '@pnpm/build-modules': 1.0.7
@@ -2373,6 +2413,22 @@ packages:
       js-tokens: 4.0.0
     resolution:
       integrity: sha512-UFMC4ZeFC48Tpvj7C8UgLvtkaUuovQX+5xNWrsIoMG8o2z+XFKjKaN9iVmS84dPwVN00W4wPmqvYoZF3EGAsfw==
+  /@berry/fslib/0.0.5:
+    dependencies:
+      '@berry/libzip': 0.0.3
+    dev: false
+    resolution:
+      integrity: sha512-qNFs9oJlaSaCY/8L8oY70hggK84is9mwQb2AYE2aAP/9H++7ErMqz7XFRUGXTAjDO/pCif9edjx0o3bk1EZsiw==
+  /@berry/libzip/0.0.3:
+    dev: false
+    resolution:
+      integrity: sha512-WayZnPU8tNzTzvnwOwSqcC9T7FZUJD/gzFpG8qPx3GWSbCh0p6M8mQtTQT0LlRFgg2sivVQcG0gI1Iji0zEQvg==
+  /@berry/pnp/0.0.1:
+    dependencies:
+      '@berry/fslib': 0.0.5
+    dev: false
+    resolution:
+      integrity: sha512-8vvc39ZtPmvF80ahIT3Ip88Erjm6jAjFfNHC57aJbcNXxHyJSLMDboNRq2Qr5p8pTB+NPZRbA8mXDVq9zVerkQ==
   /@commitlint/cli/7.6.1:
     dependencies:
       '@commitlint/format': 7.6.1
@@ -5028,8 +5084,19 @@ packages:
       minimatch: 3.0.4
       once: 1.4.0
       path-is-absolute: 1.0.1
+    dev: false
     resolution:
       integrity: sha512-vcfuiIxogLV4DlGBHIUOwI0IbrJ8HWPc4MU7HzviGeNho/UJDfi6B5p3sHeWIQ0KGIU0Jpxi5ZHxemQfLkkAwQ==
+  /glob/7.1.4:
+    dependencies:
+      fs.realpath: 1.0.0
+      inflight: 1.0.6
+      inherits: 2.0.3
+      minimatch: 3.0.4
+      once: 1.4.0
+      path-is-absolute: 1.0.1
+    resolution:
+      integrity: sha512-hkLPepehmnKk41pUGm3sYxoFs/umurYfYJCerbXEyFIWcAzvpipAgVkBqqT9RBKMGjnq6kMuyYwha6csxbiM1A==
   /global-dirs/0.1.1:
     dependencies:
       ini: 1.3.5
@@ -7614,7 +7681,7 @@ packages:
       integrity: sha1-7nEM5dk6j9uFb7Xqj/Di11k0sto=
   /rimraf/2.6.3:
     dependencies:
-      glob: 7.1.3
+      glob: 7.1.4
     hasBin: true
     resolution:
       integrity: sha512-mwqeW5XsA2qAejG46gYdENaxXjx9onRNCfn7L0duuP4hCuTIi/QO7PDK07KJfp1d+izWPrzEJDcSqBa0OZQriA==
@@ -8216,7 +8283,7 @@ packages:
       defined: 1.0.0
       for-each: 0.3.3
       function-bind: 1.1.1
-      glob: 7.1.3
+      glob: 7.1.4
       has: 1.0.3
       inherits: 2.0.3
       minimist: 1.2.0
@@ -8450,7 +8517,7 @@ packages:
       chalk: 2.4.2
       commander: 2.20.0
       diff: 3.5.0
-      glob: 7.1.3
+      glob: 7.1.4
       js-yaml: 3.13.1
       minimatch: 3.0.4
       mkdirp: 0.5.1

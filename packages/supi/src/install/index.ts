@@ -367,11 +367,15 @@ export async function mutateModules (
         forgetResolutionsOfPrevWantedDeps(ctx.wantedLockfile.importers[importer.id], wantedDeps)
       }
       const scripts = !opts.ignoreScripts && importer.manifest && importer.manifest.scripts || {}
-      if (opts.ignoreScripts && importer.manifest && importer.manifest.scripts &&
-        (importer.manifest.scripts.preinstall || importer.manifest.scripts.prepublish ||
+      if (
+        opts.ignoreScripts && importer.manifest && importer.manifest.scripts &&
+        (
+          importer.manifest.scripts.preinstall ||
+          importer.manifest.scripts.prepublish ||
           importer.manifest.scripts.install ||
           importer.manifest.scripts.postinstall ||
-          importer.manifest.scripts.prepare)
+          importer.manifest.scripts.prepare
+        )
       ) {
         ctx.pendingBuilds.push(importer.id)
       }

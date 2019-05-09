@@ -19,6 +19,7 @@
     "@pnpm/logger": "^2.1.0"
   },
   "dependencies": {
+    "@berry/pnp": "0.0.1",
     "@pnpm/build-modules": "1.0.7",
     "@pnpm/check-package": "3.0.1",
     "@pnpm/constants": "1.0.1",
